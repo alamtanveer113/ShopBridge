@@ -1,0 +1,92 @@
+﻿@model IEnumerable<ShopBridge.Models.ManageOrder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<style>
+
+    .banner-home {
+        height: auto;
+        padding-top: 187px;
+    }
+</style>
+<section class="banner-home"></section>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderCountry)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderCountry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.Username)
+            </td>
+            <td>
+                @if (Convert.ToInt32(Session["RoleId"]) == 1)
+                {
+                    @Html.ActionLink("Edit ", "Edit", new { id = item.OrderId });
+                    @Html.ActionLink(" Delete ", "Delete", new { id = item.OrderId });
+                    @Html.ActionLink(" Details", "Details", new { id = item.OrderId });
+                }
+                else
+                {
+                    @Html.ActionLink("Details", "Details", new { id = item.OrderId });
+                }
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,94 @@
+﻿@model ShopBridge.Models.ManageOrder
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<style>
+
+    .banner-home {
+        height: auto;
+        padding-top: 187px;
+    }
+</style>
+<section class="banner-home"></section>
+<h2>Order Details</h2>
+
+<div style="margin:10px">
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderCity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderCity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderCountry)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderCountry)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Username)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (Convert.ToInt32(Session["RoleId"]) == 1)
+    {
+        @Html.ActionLink(" Edit ", "Edit", new { id = Model.OrderId });
+    }
+
+    @Html.ActionLink(" Back to List ", "Index")
+</p>
